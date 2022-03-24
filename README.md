@@ -23,11 +23,11 @@ Moreover, an EventListener is then aded to the useEffect arrow function to liste
 ![Screen Shot 2022-03-23 at 8 55 48 PM](https://user-images.githubusercontent.com/84875731/159839147-93e3c91d-9419-481c-9bcb-d00a3bd7b9d8.png)
 
 ### Google Translator API- Translate.js, Convert,js
-In the Google Translator API, I chose 5 of the languages as options for a user to choose what language to be translated to and store those options as an array. The object array is then sent to the reusable Dropdown component in order to be displayed.
+In the Google Translator API, I setup 5 languages as options for a user to choose what language to be translated to and I store those options as an array object as "options". The "options" array is then sent to the reusable Dropdown component that I created earlier to be displayed.
 
 ![Screen Shot 2022-03-23 at 9 04 55 PM](https://user-images.githubusercontent.com/84875731/159840076-e6c72c1d-a504-4966-a148-bca19f6a0fe2.png)
 
-Covert.js is created to handle the async API request by using useEffect. A catch here is that I used another useEffect to debounced the "text" state which becomes "debouncedText".
+Next, Covert.js is created to handle the async API request by using useEffect. A catch here is that I used another useEffect to debounced the "text" state which renamed to "debouncedText".
 
 ### Navigation and Router- header.js, Link.js, Route.js
 
