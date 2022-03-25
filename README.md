@@ -39,22 +39,22 @@ The Link.js does four of the following stpes when user clicked an App:
     3. Emits a navigation event, PopStateEvent, that communicates to the Route components that the URL has changed to.
     4. The Route rerenders, showing/hiding components appropriately(step 4 happens inside the Route.js).
 
-const Link = ({className, href, children}) => {
-    const onClick =(event) => { //event object is always necessary when defining an event handeler
-        //restore default windows and mac commend function
-        if(event.metaKey || event.ctrlKey) {
-            return;
-        }
+    const Link = ({className, href, children}) => {
+        const onClick =(event) => { //event object is always necessary when defining an event handeler
+            //restore default windows and mac commend function
+            if(event.metaKey || event.ctrlKey) {
+                return;
+            }
 
-        // 1. preventing a full-page reload between user clicking each menu tabs
-        event.preventDefault(); 
-        
-        // 2. detect the changes as user is clicking a different page and changes the URL of the web browser search bar async with the click's pathname
-        window.history.pushState({},'', href);
+            // 1. preventing a full-page reload between user clicking each menu tabs
+            event.preventDefault(); 
 
-        // 3. Emit a navigation event that communicate to the Route components that the URL just changed
-        const navEvent = new PopStateEvent('popstate');
-        window.dispatchEvent(navEvent);
-    };
+            // 2. detect the changes as user is clicking a different page and changes the URL of the web browser search bar async with the click's pathname
+            window.history.pushState({},'', href);
+
+            // 3. Emit a navigation event that communicate to the Route components that the URL just changed
+            const navEvent = new PopStateEvent('popstate');
+            window.dispatchEvent(navEvent);
+        };
 
 ## Summary
