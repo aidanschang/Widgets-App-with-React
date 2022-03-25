@@ -46,15 +46,13 @@ The Link.js does four of the following steps when user clicked an App:
                       return;
                   }
             
-            // 1. preventing a full-page reload between user clicking each menu tabs
-            event.preventDefault(); 
+                        // 1. preventing a full-page reload between user clicking each menu tabs
+                        event.preventDefault(); 
 
-            // 2. detect the changes as user is clicking a different page and changes the URL of the web browser search bar async with the click's pathname
-            window.history.pushState({},'', href);
+                        // 2. detect the changes as user is clicking a different page and changes the URL of the web browser search bar async with the click's pathname
+                        window.history.pushState({},'', href);
 
-            // 3. Emit a navigation event that communicate to the Route components that the URL just changed
-            const navEvent = new PopStateEvent('popstate');
-            window.dispatchEvent(navEvent);
-      };
-
-## Summary
+                        // 3. Emit a navigation event that communicate to the Route components that the URL just changed
+                        const navEvent = new PopStateEvent('popstate');
+                        window.dispatchEvent(navEvent);
+            };
