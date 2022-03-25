@@ -39,12 +39,13 @@ The Link.js does four of the following steps when user clicked an App:
 3. Emits a navigation event, PopStateEvent, that communicates to the Route components that the URL has changed to.
 4. The Route rerenders, showing/hiding components appropriately(step 4 happens inside the Route.js).
 
-      const Link = ({className, href, children}) => {
-        const onClick =(event) => { //event object is always necessary when defining an event handeler
-            //restore default windows and mac commend function
-            if(event.metaKey || event.ctrlKey) {
-                return;
-            }
+            const Link = ({className, href, children}) => {
+              const onClick =(event) => { //event object is always necessary when defining an event handeler
+                  //restore default windows and mac commend function
+                  if(event.metaKey || event.ctrlKey) {
+                      return;
+                  }
+            
             // 1. preventing a full-page reload between user clicking each menu tabs
             event.preventDefault(); 
 
