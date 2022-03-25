@@ -33,10 +33,10 @@ Next, Covert.js is created to handle the async API request by using useEffect. A
 To avoid requesting a wide varieties of network requests during the navigation between the Apps, the header.js passes href data to Link.js and Link.js only makes necessary network requests according to the selected App. 
 
 The Link.js does four of the following stpes when user clicked an App:
-    1. Initiates an event.prevenDefault() on the link.
-    2. Detects which page a user has clicked and changes the URL of the web browser in the search bar according to the click's pathname.
-    3. Emits a navigation event, PopStateEvent, that communicates to the Route components that the URL has changed to.
-    4. The Route rerenders, showing/hiding components appropriately(step 4 happens inside the Route.js).
+    *1. Initiates an event.prevenDefault() on the link.
+    *2. Detects which page a user has clicked and changes the URL of the web browser in the search bar according to the click's pathname.
+    *3. Emits a navigation event, PopStateEvent, that communicates to the Route components that the URL has changed to.
+    *4. The Route rerenders, showing/hiding components appropriately(step 4 happens inside the Route.js).
 
 const Link = ({className, href, children}) => {
     
