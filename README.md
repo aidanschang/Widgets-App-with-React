@@ -40,7 +40,6 @@ The Link.js does four of the following stpes when user clicked an App:
     4. The Route rerenders, showing/hiding components appropriately(step 4 happens inside the Route.js).
 
 const Link = ({className, href, children}) => {
-    
     const onClick =(event) => { //event object is always necessary when defining an event handeler
         //restore default windows and mac commend function
         if(event.metaKey || event.ctrlKey) {
