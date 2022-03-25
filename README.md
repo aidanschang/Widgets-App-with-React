@@ -25,10 +25,36 @@ Moreover, an EventListener is then aded to the useEffect arrow function to liste
 ### Google Translator API- Translate.js, Convert,js
 In the Google Translator API, I setup 5 languages as options for a user to choose what language to be translated to and I store those options as an array object as "options". The "options" array is then sent to the reusable Dropdown component that I created earlier to be displayed.
 
-![Screen Shot 2022-03-23 at 9 04 55 PM](https://user-images.githubusercontent.com/84875731/159840076-e6c72c1d-a504-4966-a148-bca19f6a0fe2.png)
-
 Next, Covert.js is created to handle the async API request by using useEffect. A catch here is that I used another useEffect to debounced the "text" state which renamed to "debouncedText".
 
+![Screen Shot 2022-03-23 at 9 04 55 PM](https://user-images.githubusercontent.com/84875731/159840076-e6c72c1d-a504-4966-a148-bca19f6a0fe2.png)
+
 ### Navigation and Router- header.js, Link.js, Route.js
+To avoid requesting a wide varieties of network requests during the navigation between the Apps, the header.js passes href data to Link.js and Link.js only makes necessary network requests according to the selected App. 
+
+The Link.js does four of the following stpes when user clicked an App:
+    1. Initiates an event.prevenDefault() on the link.
+    2. Detects which page a user has clicked and changes the URL of the web browser in the search bar according to the click's pathname.
+    3. Emits a navigation event, PopStateEvent, that communicates to the Route components that the URL has changed to.
+    4. The Route rerenders, showing/hiding components appropriately(step 4 happens inside the Route.js).
+
+const Link = ({className, href, children}) => {
+    
+    const onClick =(event) => { //event object is always necessary when defining an event handeler
+        //restore default windows and mac commend function
+        if(event.metaKey || event.ctrlKey) {
+            return;
+        }
+
+        // 1. preventing a full-page reload between user clicking each menu tabs
+        event.preventDefault(); 
+        
+        // 2. detect the changes as user is clicking a different page and changes the URL of the web browser search bar async with the click's pathname
+        window.history.pushState({},'', href);
+
+        // 3. Emit a navigation event that communicate to the Route components that the URL just changed
+        const navEvent = new PopStateEvent('popstate');
+        window.dispatchEvent(navEvent);
+    };
 
 ## Summary
